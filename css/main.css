@@ -1,0 +1,56 @@
+/* Fő CSS fájl. */
+#main-nav {
+    background-color: aqua;
+}
+.margin-top-s {
+    margin-top: 5px;
+}
+#main-nav ul li a {
+    color: black;
+    text-decoration: none;
+}
+#main-nav ul li a:hover {
+    color: cadetblue;
+}
+#main-nav ul li a:active {
+    color: aliceblue; 
+}
+
+#main-nav ul li a[href='product.html'] {
+    font-style: italic;
+}
+
+#main-nav ul li {
+    margin-left: 30px;
+}
+#main-nav ul li:first-child {
+    margin-left: 0;
+}
+
+.lorem-p::selection {
+    background-color: blue;
+    color: white;
+}
+.lorem-p:first-letter {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+/* Input. */
+input#name[value='Pisti'] {
+    background-color: red;
+}
+
+nav ul {
+    list-style-type: none;
+}
+nav ul li {
+    display: inline;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #e0e0e0;
+}
