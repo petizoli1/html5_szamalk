@@ -88,7 +88,7 @@ window.onload = function() {
         return re.test(email.value);
     };
     
-    email.onchange = checkEmail;
+    email.onblur = checkEmail;
     
     //Űrlap küldése
     var form = document.querySelector(".form-horizontal");
@@ -98,4 +98,57 @@ window.onload = function() {
         }
     };
     
+    //Késleltetett működés.
+    /*
+    var intv = setInterval( function() {
+        var d = new Date();
+        console.log( d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() );
+    }, 1000);
+    
+    var to = setTimeout( function(){
+        clearTimeout(to);
+        console.log("clearintervall...");
+        clearInterval(intv);
+    }, 10000 );
+    */
+    
+    var _rto;
+    window.onresize = function() {
+        clearTimeout(_rto);
+        _rto = setTimeout( function() {
+            clearTimeout(_rto);
+            console.log( this.innerWidth );
+        }, 150);
+    };
+    
+    getRemoteContent();
+    
 };
+
+//Távoli tartalom betöltése.
+function getRemoteContent() {
+    
+    //Új request.
+    var req = new XMLHttpRequest();
+    
+    //Beállítás
+    req.open( "get", "json/products.json" );
+    
+    //Ha kész.
+    req.onload = function() {
+        var data = JSON.parse(this.response);
+        console.log( data );  
+    };
+    
+    //Indítjuk
+    req.send();
+    
+}
+
+
+
+
+
+
+
+
